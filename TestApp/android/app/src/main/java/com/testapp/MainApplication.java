@@ -12,6 +12,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.microsoft.appcenter.AppCenter;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
             @SuppressWarnings("UnnecessaryLocalVariable")
             List<ReactPackage> packages = new PackageList(this).getPackages();
             packages.add(new TestAppNativePackage());
+            packages.add(new RNFirebaseAuthPackage());
             return packages;
         }
 

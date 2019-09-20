@@ -36,7 +36,39 @@ PODS:
   - AppCenterReactNativeShared (2.3.0):
     - AppCenter/Core (= 2.3.0)
   - boost-for-react-native (1.63.0)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - DoubleConversion (1.1.6)
+  - Fabric (1.10.2)
+  - Firebase/Core (6.8.1):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.1.1)
+  - Firebase/CoreOnly (6.8.1):
+    - FirebaseCore (= 6.2.3)
+  - FirebaseAnalytics (6.1.1):
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.1.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (6.2.3):
+    - FirebaseCoreDiagnostics (~> 1.0)
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnostics (1.0.1):
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleDataTransportCCTSupport (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnosticsInterop (1.0.0)
+  - FirebaseInstanceID (4.2.5):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
@@ -47,6 +79,39 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - GoogleAppMeasurement (6.1.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - GoogleDataTransport (1.2.0)
+  - GoogleDataTransportCCTSupport (1.0.4):
+    - GoogleDataTransport (~> 1.2)
+    - nanopb
+  - GoogleUtilities/AppDelegateSwizzler (6.3.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.3.0)
+  - GoogleUtilities/Logger (6.3.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.3.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.3.0)"
+  - GoogleUtilities/Reachability (6.3.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.3.0):
+    - GoogleUtilities/Logger
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - React (0.60.3):
     - React-Core (= 0.60.3)
     - React-DevSupport (= 0.60.3)
@@ -121,6 +186,15 @@ PODS:
     - React-fishhook (= 0.60.3)
   - RNCAsyncStorage (1.6.1):
     - React
+  - RNFirebase (5.5.6):
+    - Firebase/Core
+    - React
+    - RNFirebase/Crashlytics (= 5.5.6)
+  - RNFirebase/Crashlytics (5.5.6):
+    - Crashlytics
+    - Fabric
+    - Firebase/Core
+    - React
   - RNFS (2.14.1):
     - React
   - RNGestureHandler (1.4.1):
@@ -158,6 +232,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -166,6 +241,19 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AppCenter
     - boost-for-react-native
+    - Crashlytics
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
+    - FirebaseInstanceID
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
+    - GoogleUtilities
+    - nanopb
 
 EXTERNAL SOURCES:
   appcenter:
@@ -228,6 +316,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNFirebase:
+    :path: "../node_modules/react-native-firebase/ios"
   RNFS:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
@@ -245,9 +335,22 @@ SPEC CHECKSUMS:
   appcenter-push: f9bb9026d1050f266dbcde0f9eb9af8bf410eee9
   AppCenterReactNativeShared: 4f131ffd29fc6d25d54ed1f1fd0c7b4d3c4f192f
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Firebase: 9cbe4e5b5eaafa05dc932be58b7c8c3820d71e88
+  FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
+  FirebaseCore: e9d9bd1dae61c1e82bc1e0e617a9d832392086a0
+  FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
+  FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
+  FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  GoogleAppMeasurement: 86a82f0e1f20b8eedf8e20326530138fd71409de
+  GoogleDataTransport: 8f9897b8e073687f24ca8d3c3a8013dec7d2d1cc
+  GoogleDataTransportCCTSupport: 7455d07b98851aa63e4c05a34dad356ca588479e
+  GoogleUtilities: 9c2c544202301110b29f7974a82e77fdcf12bf51
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: ac23e9cc8d2d4cfe9b536b5cc0c32d19b9937bcf
   React-Core: 84de3cf80e31f0267c5ce0b5b482d59ce30a8a57
   React-cxxreact: a802a1c6b14f3de66ba032460b424c17ececd1e2
@@ -268,6 +371,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 5d9ed4a968e9d42880ddcc7c29bee3417c745408
   React-RCTWebSocket: 69d8565d66043f244b4129f3d7154c5689fb7d3e
   RNCAsyncStorage: 621bad7a889b5bf1583a52547f2dcd3a4d1ff15e
+  RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
   RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
   yoga: 843fe25849b56131275bf3e5da2c468e96f68aff
