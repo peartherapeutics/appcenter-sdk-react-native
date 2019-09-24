@@ -131,7 +131,7 @@ Crashes.setListener({
 });
 
 AppCenter.setAuthTokenListener({
-  async acquireAuthToken() {
-    return Promise.resolve('123456');
+  acquireAuthToken: () => {
+    return "token"
   }
 });
