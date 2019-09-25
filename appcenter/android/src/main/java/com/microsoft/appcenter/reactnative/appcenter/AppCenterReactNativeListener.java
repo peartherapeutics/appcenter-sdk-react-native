@@ -35,7 +35,7 @@ public class AppCenterReactNativeListener implements AuthTokenListener {
 
     @Override
     public void acquireAuthToken(AuthTokenCallback callback) {
-        ReactNativeUtils.logInfo("Auth token acquired.");
+        ReactNativeUtils.logInfo("Auth token requested from native code.");
         sendEvent(ON_ACQUIRE_AUTH_TOKEN_EVENT);
         mCallback = callback;
     }
