@@ -120,7 +120,7 @@ const AppCenter = {
     // async - returns a Promise
     setAuthToken(authToken) {
         return AppCenterReactNative.setAuthToken(authToken);
-    },
+    }
 };
 
 AppCenter.CustomProperties = class {
