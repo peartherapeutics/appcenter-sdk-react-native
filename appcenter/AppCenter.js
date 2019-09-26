@@ -8,6 +8,8 @@ const AppCenterLog = require('appcenter/appcenter-log');
 const PackageJson = require('./package.json');
 
 const logTag = 'AppCenter';
+const eventEmitter = new ReactNative.NativeEventEmitter(AppCenterReactNative);
+const onAcquireAuthTokenEvent = 'OnAcquireAuthTokenEvent';
 
 const AppCenter = {
     LogLevel: {
@@ -102,6 +104,24 @@ const AppCenter = {
 
     getSdkVersion() {
         return PackageJson.version;
+    },
+
+    setAuthTokenListener(listener) {
+        eventEmitter.removeAllListeners(onAcquireAuthTokenEvent);
+        if (listener) {
+            if (typeof listener.acquireAuthToken === 'function') {
+                eventEmitter.addListener(onAcquireAuthTokenEvent, async () => {
+                    const authToken = await listener.acquireAuthToken();
+                    AppCenterReactNative.notifyNativeModuleWithAuthToken(authToken);
+                });
+            } else {
+                AppCenterLog.error(logTag, 'acquireAuthToken must be defined in AppCenter.setAuthTokenListener.');
+            }
+        }
+    },
+
+    setAuthToken(authToken) {
+        return AppCenterReactNative.setAuthToken(authToken);
     }
 };
 
