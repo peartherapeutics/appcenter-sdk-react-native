@@ -7,7 +7,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import ModalSelector from 'react-native-modal-selector';
 
 import AppCenter, { CustomProperties } from 'appcenter';
-import Auth from 'appcenter-auth';
+// import Auth from 'appcenter-auth';
+const Auth = {
+  isEnabled: () => { return false; },
+  setEnabled: () => {}
+};
 import Push from 'appcenter-push';
 import Data from 'appcenter-data';
 
