@@ -9,4 +9,5 @@ pod repo update
 
 (cd ios && pod install)
 
-react-native link
+# Temporarily disable linking appcenter-data module due to a bug in linker script
+react-native link appcenter appcenter-analytics appcenter-auth appcenter-crashes appcenter-push
