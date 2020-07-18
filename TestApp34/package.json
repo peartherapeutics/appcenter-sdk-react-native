@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "appcenter": "file:appcenter-1.10.0.tgz",
@@ -12,7 +14,9 @@
     "appcenter-link-scripts": "file:appcenter-link-scripts-1.10.0.tgz",
     "appcenter-push": "file:appcenter-push-1.10.0.tgz",
     "react": "15.3.2",
-    "react-native": "0.34.0",
-    "react-navigation": "1.0.0-beta.11"
-  }
+    "react-native": "0.59.0",
+    "react-navigation": "1.0.0-beta.11",
+    "snyk": "^1.362.1"
+  },
+  "snyk": true
 }
