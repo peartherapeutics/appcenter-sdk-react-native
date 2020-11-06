@@ -15,7 +15,7 @@
     "appcenter-crashes": "^2.4.0",
     "appcenter-data": "^2.4.0",
     "appcenter-push": "^2.4.0",
-    "metro": "^0.54.1",
+    "metro": "^0.64.0",
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-fs": "^2.9.12",
